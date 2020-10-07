@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+typedef struct {
+	char name[31];
+	double price;
+} Book;
+
+void printabook(Book b);
+			
+int main()
+{
+    int n, iter, minidx = 0, min, maxidx = 0, max;
+    scanf("%d", &n);
+    getchar();
+    Book bookinfo[n];
+    
+    for(iter = 0; iter < n; iter++){
+    	gets(bookinfo[iter].name);
+    	scanf("%lf", &bookinfo[iter].price);
+    	getchar();
+    	if(iter == 0){
+    		min = bookinfo[iter].price;
+    		max = bookinfo[iter].price;
+		}
+		else{
+			if(bookinfo[iter].price < min) {
+				minidx = iter;
+				min = bookinfo[iter].price;
+			} 
+			if(bookinfo[iter].price > max) {
+				maxidx = iter;
+				max = bookinfo[iter].price;
+			}
+		}
+	}
+
+	
+    printabook(bookinfo[maxidx]);
+    printabook(bookinfo[minidx]);
+			
+    return 0;
+}
+
+void printabook(Book b){
+	printf("%.2f, %s\n", b.price, b.name);
+}

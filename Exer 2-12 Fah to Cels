@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+double ftoc(int n);
+
+int main(){
+    
+    int lower, upper;
+    scanf("%d %d", &lower, &upper);
+    
+    if(lower > upper) printf("Invalid.\n");
+    else {
+        printf("fahr celsius\n");
+        for(int i = lower; i <= upper; i += 2){
+            printf("%d%6.1f\n", i, ftoc(i) );  //Right aligning
+        }
+    }
+    
+    return 0;
+}
+
+double ftoc(int f){
+    
+    return 5.0 * (f - 32) / 9;
+}
